@@ -10,6 +10,7 @@
 
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+       /* For Binary Tree 
         if(root == null || p == root || q == root) {
             return root;
         }
@@ -17,12 +18,23 @@ class Solution {
         TreeNode left = lowestCommonAncestor(root.left,p,q);
         TreeNode right = lowestCommonAncestor(root.right,p,q);
         
-        if(left==null) {
+        if(left == null) {
             return right;
         } else if (right==null) {
             return left;
         } else {
             return root;
+        } */
+        
+        // For Binary Search Tree
+        
+        while(true) {
+            if(root.val < p.val && root.val < q.val) 
+                root = root.right;
+            else if(root.val > p.val && root.val>q.val)
+                root = root.left;
+            else 
+                return root;
         }
         
     }
